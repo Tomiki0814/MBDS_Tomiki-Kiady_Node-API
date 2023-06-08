@@ -66,7 +66,7 @@ app.route(prefix + '/matiere')
 
 /**********************************/
   app.route(prefix + '/etudiants')
-    .get(etudiant.getAssignmentsSansPagination)
+    .get(etudiant.getAssignments)
 
 /**********************************/
     app.route(prefix + '/devoirs')
