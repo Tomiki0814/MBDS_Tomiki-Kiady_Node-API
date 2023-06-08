@@ -5,6 +5,7 @@ let assignment = require('./routes/assignments');
 let user = require('./routes/users')
 let matiere = require('./routes/matieres')
 let etudiant = require('./routes/etudiants')
+let devoir = require('./routes/devoirs')
 let mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 //mongoose.set('debug', true);
@@ -65,7 +66,11 @@ app.route(prefix + '/matiere')
 
 /**********************************/
   app.route(prefix + '/etudiants')
-    .get(etudiant.getAssignments)
+    .get(etudiant.getAssignmentsSansPagination)
+
+/**********************************/
+    app.route(prefix + '/devoirs')
+      .get(devoir.getAssignmentsSansPagination)
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");

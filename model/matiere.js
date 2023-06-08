@@ -16,4 +16,4 @@ MatiereSchema.plugin(aggregatePaginate);
 // soit assignments
 // Si on met un nom "proche", Mongoose choisira la collection
 // dont le nom est le plus proche
-module.exports = mongoose.model('matieres', MatiereSchema);
+module.exports = mongoose.model('Matieres', MatiereSchema, 'matieres');
