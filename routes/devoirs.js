@@ -9,30 +9,19 @@ function getAssignmentsSansPagination(req, res){
   })
 }
 
-
 function getAssignments(req, res) {
-  /*const lister = (next) => {
-    Commande.find().populate(["plats.objetPlat","restaurant","client"]).exec((error, commandes) => {
+    var page =  parseInt(req.query.page) || 1;
+    var limit = parseInt(req.query.limit) || 10;
+    var skip = (page - 1) * limit;
+    devoir.find()
+    .populate(["idEtudiant","idMatiere"])
+    .skip(skip)
+    .limit(limit)
+    .exec((error, commandes) => {
         if (error) return next(error);
-        commandes.forEach(cmd => cmd.client.password = "🍕");
-
-        next(null, commandes);
+        res.json(commandes);
     })
-};*/
    }
    
-// Récupérer un assignment par son id (GET)
-function getUser(req, res){
-    let assignmentId = req.params.id;
 
-    devoir.findOne({id: assignmentId}, (err, assignment) =>{
-        if(err){res.send(err)}
-        res.json(assignment);
-    })
-}
-
-
-
-
-
-module.exports = { getAssignments, getAssignmentsSansPagination };
+module.exports = {getAssignments, getAssignmentsSansPagination };

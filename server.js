@@ -70,7 +70,7 @@ app.route(prefix + '/matiere')
 
 /**********************************/
     app.route(prefix + '/devoirs')
-      .get(devoir.getAssignmentsSansPagination)
+      .get(devoir.getAssignments)
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
