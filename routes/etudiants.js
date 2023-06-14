@@ -1,7 +1,7 @@
 const devoir = require('../model/devoir');
 let etudiant = require('../model/etudiant');
 let matiere = require('../model/matiere')
-function getAssignmentsSansPagination(req, res){
+function getEtudiantsSansPagination(req, res){
   var listeEtudiant;
   var listeMatiere;
     etudiant.find((err, assignments) => {
@@ -35,35 +35,21 @@ function getAssignmentsSansPagination(req, res){
 
 }
 
-function getAssignments(req, res) {
-    var aggregateQuery = etudiant.aggregate();
-    
-    etudiant.aggregatePaginate(aggregateQuery,
-      {
-        page: parseInt(req.query.page) || 1,
-        limit: parseInt(req.query.limit) || 10,
-      },
-      (err, assignments) => {
-        if (err) {
-          res.send(err);
-        }
-        res.send(assignments);
+function getEtudiants(req, res) {
+  var aggregateQuery = etudiant.aggregate();
+  etudiant.aggregatePaginate(aggregateQuery,
+    {
+      page: parseInt(req.query.page) || 1,
+      limit: parseInt(req.query.limit) || 10,
+    },
+    (err, assignments) => {
+      if (err) {
+        res.send(err);
       }
-    );
-   }
-   
-// Récupérer un assignment par son id (GET)
-function getUser(req, res){
-    let assignmentId = req.params.id;
-
-    etudiant.findOne({id: assignmentId}, (err, assignment) =>{
-        if(err){res.send(err)}
-        res.json(assignment);
-    })
+      res.send(assignments);
+    }
+  );
 }
+  
 
-
-
-
-
-module.exports = { getAssignments, getAssignmentsSansPagination };
+module.exports = { getEtudiants, getEtudiantsSansPagination };

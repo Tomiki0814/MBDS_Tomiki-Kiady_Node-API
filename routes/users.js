@@ -1,7 +1,7 @@
 let user = require('../model/user');
 
 // Récupérer tous les assignments (GET)
-function getAssignmentsSansPagination(req, res){
+function getUsersSansPagination(req, res){
     user.find((err, assignments) => {
         if(err){
             res.send(err)
@@ -11,7 +11,7 @@ function getAssignmentsSansPagination(req, res){
     });
 }
 
-function getAssignments(req, res) {
+function getUsers(req, res) {
     var aggregateQuery = user.aggregate();
     
     user.aggregatePaginate(aggregateQuery,
@@ -28,18 +28,4 @@ function getAssignments(req, res) {
     );
    }
    
-// Récupérer un assignment par son id (GET)
-function getUser(req, res){
-    let assignmentId = req.params.id;
-
-    user.findOne({id: assignmentId}, (err, assignment) =>{
-        if(err){res.send(err)}
-        res.json(assignment);
-    })
-}
-
-
-
-
-
-module.exports = { getAssignments, getAssignmentsSansPagination };
+module.exports = { getUsers, getUsersSansPagination };

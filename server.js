@@ -58,19 +58,19 @@ app.route(prefix + '/assignments/:id')
 
 /**********************************/
 app.route(prefix + '/users')
-  .get(user.getAssignments)
+  .get(user.getUsers)
   
 /**********************************/
 app.route(prefix + '/matiere')
-  .get(matiere.getAssignments)
+  .get(matiere.getMatieres)
 
 /**********************************/
   app.route(prefix + '/etudiants')
-    .get(etudiant.getAssignments)
+    .get(etudiant.getEtudiants)
 
 /**********************************/
     app.route(prefix + '/devoirs')
-      .get(devoir.getAssignments)
+      .get(devoir.getDevoirs)
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
