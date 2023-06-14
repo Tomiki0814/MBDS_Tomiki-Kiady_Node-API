@@ -60,6 +60,8 @@ app.route(prefix + '/assignments/:id')
 app.route(prefix + '/users')
   .get(user.getUsers)
   
+app.route(prefix+'/login')
+  .post(user.Login)
 /**********************************/
 app.route(prefix + '/matiere')
   .get(matiere.getMatieres)
