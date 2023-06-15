@@ -38,4 +38,4 @@ function Login(req, res){
   })
 }
    
-module.exports = {Login, getUsers, getUsersSansPagination };
+module.exports = {Login};

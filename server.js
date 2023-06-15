@@ -57,22 +57,17 @@ app.route(prefix + '/assignments/:id')
   .delete(assignment.deleteAssignment);
 
 /**********************************/
-app.route(prefix + '/users')
-  .get(user.getUsers)
-  
 app.route(prefix+'/login')
   .post(user.Login)
 /**********************************/
 app.route(prefix + '/matiere')
   .get(matiere.getMatieres)
-
 /**********************************/
-  app.route(prefix + '/etudiants')
-    .get(etudiant.getEtudiants)
-
+app.route(prefix + '/etudiants')
+  .get(etudiant.getEtudiants)
 /**********************************/
-    app.route(prefix + '/devoirs')
-      .get(devoir.getDevoirs)
+app.route(prefix + '/devoirs')
+  .get(devoir.getDevoirs)
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
