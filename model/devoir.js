@@ -12,6 +12,7 @@ let DevoirSchema = Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: "Matieres"
     },
+    dateRendu: Date,
     note: Number,
     remarque: String
 });

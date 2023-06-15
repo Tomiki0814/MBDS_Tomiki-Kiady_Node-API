@@ -68,7 +68,14 @@ app.route(prefix + '/etudiants')
 /**********************************/
 app.route(prefix + '/devoirs')
   .get(devoir.getDevoirs)
+  .post(devoir.addDevoir);
 
+app.route(prefix + '/devoirs/:id')
+  .put(devoir.updateDevoir)
+  .delete(devoir.deleteDevoir)
+
+app.route(prefix + '/all/devoirs')
+  .get(devoir.getDevoirsSansPagination)
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
 console.log('Serveur démarré sur http://localhost:' + port);
