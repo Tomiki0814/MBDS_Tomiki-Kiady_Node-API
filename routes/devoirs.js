@@ -1,5 +1,6 @@
 let devoir = require('../model/devoir');
 require('../model/etudiant')
+const user = require("../model/user");
 
 // Récupérer tous les assignments (GET)
 function getDevoirsSansPagination(req, res) {
@@ -60,5 +61,32 @@ function deleteDevoir(req, res) {
     })
 }
 
+function findDevoirByEditudiant(req, res) {
+    devoir.find({idEtudiant: req.params.id}, (err, result) => {
+        if (err) {
+            console.log("error")
+            res.send(err)
+        }
 
-module.exports = {addDevoir, getDevoirs, getDevoirsSansPagination, updateDevoir, deleteDevoir};
+        res.json(result);
+    })
+}
+
+function findDevoirByMatiere(req, res) {
+    devoir.find({idMatiere: req.params.id}, (err, result) => {
+        if (err) {
+            res.send(err)
+        }
+        res.json(result);
+    })
+}
+
+module.exports = {
+    addDevoir,
+    getDevoirs,
+    getDevoirsSansPagination,
+    updateDevoir,
+    deleteDevoir,
+    findDevoirByEditudiant,
+    findDevoirByMatiere
+};
