@@ -15,27 +15,27 @@ mongoose.Promise = global.Promise;
 const uri = 'mongodb+srv://tomikiramanantsoa:9KsoaJHqHf4HLB1B@myassignementbdd.9k96kwh.mongodb.net/mbds_assignements?retryWrites=true&w=majority'
 
 const options = {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify:false
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useFindAndModify: false
 };
 
 mongoose.connect(uri, options)
-  .then(() => {
-    console.log("Connecté à la base MongoDB assignments dans le cloud !");
-    console.log("at URI = " + uri);
-    console.log("vérifiez with http://localhost:8010/api/assignments que cela fonctionne")
-    },
-    err => {
-      console.log('Erreur de connexion: ', err);
-    });
+    .then(() => {
+            console.log("Connecté à la base MongoDB assignments dans le cloud !");
+            console.log("at URI = " + uri);
+            console.log("vérifiez with http://localhost:8010/api/assignments que cela fonctionne")
+        },
+        err => {
+            console.log('Erreur de connexion: ', err);
+        });
 
 // Pour accepter les connexions cross-domain (CORS)
 app.use(function (req, res, next) {
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
-  res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
-  next();
+    res.header("Access-Control-Allow-Origin", "*");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS");
+    next();
 });
 
 // Pour les formulaires
@@ -48,32 +48,41 @@ let port = process.env.PORT || 8010;
 const prefix = '/api';
 /**********************************/
 app.route(prefix + '/assignments')
-  .get(assignment.getAssignments)
-  .post(assignment.postAssignment)
-  .put(assignment.updateAssignment);
+    .get(assignment.getAssignments)
+    .post(assignment.postAssignment)
+    .put(assignment.updateAssignment);
 
 app.route(prefix + '/assignments/:id')
-  .get(assignment.getAssignment)
-  .delete(assignment.deleteAssignment);
+    .get(assignment.getAssignment)
+    .delete(assignment.deleteAssignment);
 
 /**********************************/
-app.route(prefix + '/users')
-  .get(user.getUsers)
-  
-app.route(prefix+'/login')
-  .post(user.Login)
+app.route(prefix + '/login')
+    .post(user.Login)
 /**********************************/
 app.route(prefix + '/matiere')
-  .get(matiere.getMatieres)
+    .get(matiere.getMatieres)
+
+app.route(prefix + '/all/matiere')
+    .get(matiere.getMatieresSansPagination)
 
 /**********************************/
-  app.route(prefix + '/etudiants')
+app.route(prefix + '/etudiants')
     .get(etudiant.getEtudiants)
 
+app.route(prefix + '/all/etudiants')
+    .get(etudiant.getEtudiantsSansPagination)
 /**********************************/
-    app.route(prefix + '/devoirs')
-      .get(devoir.getDevoirs)
+app.route(prefix + '/devoirs')
+    .get(devoir.getDevoirs)
+    .post(devoir.addDevoir);
 
+app.route(prefix + '/devoirs/:id')
+    .put(devoir.updateDevoir)
+    .delete(devoir.deleteDevoir)
+
+app.route(prefix + '/all/devoirs')
+    .get(devoir.getDevoirsSansPagination)
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
 console.log('Serveur démarré sur http://localhost:' + port);
