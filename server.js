@@ -80,6 +80,7 @@ app.route(prefix + '/devoirs')
 app.route(prefix + '/devoirs/:id')
     .put(devoir.updateDevoir)
     .delete(devoir.deleteDevoir)
+    .get(devoir.findDevoirById)
 
 app.route(prefix + '/all/devoirs')
     .get(devoir.getDevoirsSansPagination)
@@ -89,6 +90,7 @@ app.route(prefix + '/findByEtudiant/:id')
 
 app.route(prefix + '/findbyMatiere/:id')
     .get(devoir.findDevoirByMatiere)
+
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");

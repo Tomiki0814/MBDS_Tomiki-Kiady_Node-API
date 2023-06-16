@@ -78,6 +78,16 @@ function findDevoirByMatiere(req, res) {
         })
 }
 
+function findDevoirById(req, res) {
+    devoir.find({_id: req.params.id})
+        .populate(["idEtudiant", "idMatiere"])
+        .exec((error, devoirs) => {
+            if (error) return next(error);
+            res.json(devoirs);
+        })
+}
+
+
 module.exports = {
     addDevoir,
     getDevoirs,
@@ -85,5 +95,6 @@ module.exports = {
     updateDevoir,
     deleteDevoir,
     findDevoirByEditudiant,
-    findDevoirByMatiere
+    findDevoirByMatiere,
+    findDevoirById
 };
