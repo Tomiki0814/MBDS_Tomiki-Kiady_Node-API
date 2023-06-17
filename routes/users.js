@@ -7,6 +7,10 @@ function Login(req, res) {
         if (err) {
             res.send(err)
         }
+        if(result == null){
+             res.send(result)
+            return
+        }
         let userResult = new user(result)
         userResult.password = null;
         res.json(userResult);
