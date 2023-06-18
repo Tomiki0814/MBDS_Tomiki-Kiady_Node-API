@@ -2,13 +2,14 @@ let devoir = require('../model/devoir');
 
 // Récupérer tous les assignments (GET)
 function getDevoirsSansPagination(req, res) {
-    devoir.find().populate(["idEtudiant", "idMatiere"]).exec((error, commandes) => {
+    devoir.find().populate(["idEtudiant", "idMatiere"]).exec((error, devoirs) => {
         if (error) return next(error);
-        res.json(commandes);
+        res.json(devoirs);
     })
 }
 
 function getDevoirs(req, res) {
+
     var page = parseInt(req.query.page) || 1;
     var limit = parseInt(req.query.limit) || 10;
     var skip = (page - 1) * limit;
@@ -16,9 +17,15 @@ function getDevoirs(req, res) {
         .populate(["idEtudiant", "idMatiere"])
         .skip(skip)
         .limit(limit)
-        .exec((error, commandes) => {
+        .exec((error, devoirs) => {
             if (error) return next(error);
-            res.json(commandes);
+            devoir.countDocuments((err, count) => {
+                if (err) {
+                }
+                var result= {docs:devoirs,totals:count}
+                res.json(result);
+            });
+
         })
 }
 
