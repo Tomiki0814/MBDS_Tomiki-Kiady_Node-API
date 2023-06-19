@@ -12,6 +12,7 @@ let DevoirSchema = Schema({
         ref: "Matieres"
     },
     dateRendu: Date,
+    estRendu: Boolean,
     note: Number,
     remarque: String
 });

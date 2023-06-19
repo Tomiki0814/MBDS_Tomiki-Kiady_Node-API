@@ -15,6 +15,7 @@ function getDevoirs(req, res) {
     var skip = (page - 1) * limit;
     devoir.find()
         .populate(["idEtudiant", "idMatiere"])
+        .sort(({ _id: -1 }))
         .skip(skip)
         .limit(limit)
         .exec((error, devoirs) => {
