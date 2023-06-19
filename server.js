@@ -91,6 +91,9 @@ app.route(prefix + '/findByEtudiant/:id')
 app.route(prefix + '/findbyMatiere/:id')
     .get(devoir.findDevoirByMatiere)
 
+app.route(prefix + '/devoirs/sort/:estRendu')
+    .get(devoir.findDevoirByStatus)
+
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");

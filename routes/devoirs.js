@@ -15,7 +15,7 @@ function getDevoirs(req, res) {
     var skip = (page - 1) * limit;
     devoir.find()
         .populate(["idEtudiant", "idMatiere"])
-        .sort(({ _id: -1 }))
+        .sort(({_id: -1}))
         .skip(skip)
         .limit(limit)
         .exec((error, devoirs) => {
@@ -23,7 +23,7 @@ function getDevoirs(req, res) {
             devoir.countDocuments((err, count) => {
                 if (err) {
                 }
-                var result= {docs:devoirs,totals:count}
+                var result = {docs: devoirs, totals: count}
                 res.json(result);
             });
 
@@ -95,6 +95,28 @@ function findDevoirById(req, res) {
         })
 }
 
+function findDevoirByStatus(req, res) {
+    var page = parseInt(req.query.page) || 1;
+    var limit = parseInt(req.query.limit) || 10;
+    var skip = (page - 1) * limit;
+    devoir.find({estRendu: req.params.estRendu})
+        .populate(["idEtudiant", "idMatiere"])
+        .sort(({_id: -1}))
+        .skip(skip)
+        .limit(limit)
+        .exec((error, devoirs) => {
+            if (error) return next(error);
+            devoir.countDocuments({estRendu: req.params.estRendu},(err, count) => {
+                if (err) {
+                }
+                var result = {docs: devoirs, totals: count}
+                res.json(result);
+            });
+
+        })
+
+}
+
 
 module.exports = {
     addDevoir,
@@ -104,5 +126,6 @@ module.exports = {
     deleteDevoir,
     findDevoirByEditudiant,
     findDevoirByMatiere,
-    findDevoirById
+    findDevoirById,
+    findDevoirByStatus
 };
