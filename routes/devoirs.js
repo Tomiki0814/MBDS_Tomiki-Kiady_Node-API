@@ -117,7 +117,6 @@ function findDevoirByStatus(req, res) {
 
 
 function filtrerDevoirParNote(req, res){
-    console.log(req.params)
     devoir.find({idMatiere:req.params.matiere, note: {$gte: req.params.minNote, $lte: req.params.maxNote} })
         .populate(["idEtudiant", "idMatiere"])
         .sort(({_id: -1}))
@@ -126,6 +125,16 @@ function filtrerDevoirParNote(req, res){
             res.json(devoirs);
         }
 )
+}
+function annulerDevoir(req, res){
+    devoir.findByIdAndUpdate(req.body._id, {estRendu:false, $unset: { note: 1, remarque:1 } }, {new: true}, (err, assignment) => {
+        if (err) {
+            console.log(err);
+            res.send(err)
+        } else {
+            res.json({message: assignment + 'updated'})
+        }
+    });
 }
 
 module.exports = {
@@ -138,5 +147,6 @@ module.exports = {
     findDevoirByMatiere,
     findDevoirById,
     findDevoirByStatus,
-    filtrerDevoirParNote
+    filtrerDevoirParNote,
+    annulerDevoir
 };

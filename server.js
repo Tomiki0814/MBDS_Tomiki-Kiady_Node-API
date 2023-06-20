@@ -96,6 +96,9 @@ app.route(prefix + '/devoirs/sort/:estRendu')
 app.route((prefix+'/devoirs/note/sort/:matiere/:minNote/:maxNote'))
     .get(devoir.filtrerDevoirParNote)
 
+app.route(prefix+'/devoirs/annuler/:id')
+    .put(devoir.annulerDevoir)
+
 
 // On démarre le serveur
 app.listen(port, "0.0.0.0");
