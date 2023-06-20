@@ -1,0 +1,393 @@
+{
+	"info": {
+		"_postman_id": "a4eb6d22-feef-49ca-8400-3fb89d08cde5",
+		"name": "Assignement Api Local",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get matieres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/matiere",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"matiere"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all matieres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/all/matiere",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"all",
+						"matiere"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get etudiants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/etudiants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"etudiants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all etudiants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/all/etudiants",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"all",
+						"etudiants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get devoirs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/devoirs?page=1&limit=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"devoirs"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all devoirs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/all/devoirs/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"all",
+						"devoirs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoir",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/devoirs/6491e046b7636000325cde7d",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"devoirs",
+						"6491e046b7636000325cde7d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoirs by etudiants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/findByEtudiant/648041e5e9d1a2c72ffae682",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"findByEtudiant",
+						"648041e5e9d1a2c72ffae682"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoirs by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/devoirs/sort/true",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"devoirs",
+						"sort",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoirs by matiere",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/findbyMatiere/648044cfe9d1a2c72fffeac0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"findbyMatiere",
+						"648044cfe9d1a2c72fffeac0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoirs sort note",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/devoirs/note/sort/648044cfe9d1a2c72fffeabf/10/16",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"devoirs",
+						"note",
+						"sort",
+						"648044cfe9d1a2c72fffeabf",
+						"10",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add devoir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idEtudiant\":\"648041e5e9d1a2c72ffae682\",\r\n    \"idMatiere\":\"648044cfe9d1a2c72fffeac2\",\r\n    \"note\":20,\r\n    \"remarque\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8010/api/devoirs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"devoirs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Annuler devoir",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"648ec1c94d319809b40f8a75\",\r\n    \"idEtudiant\":\"648041e5e9d1a2c72ffae682\",\r\n    \"idMatiere\":\"648044cfe9d1a2c72fffeac2\",\r\n    \"note\":25,\r\n    \"remarque\":\"YNWA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8010/api/devoirs/annuler/648ec1c94d319809b40f8a75",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"devoirs",
+						"annuler",
+						"648ec1c94d319809b40f8a75"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update devoir",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"6481c35215ed147f39abc15b\",\r\n    \"idEtudiant\":\"648041e5e9d1a2c72ffae682\",\r\n    \"idMatiere\":\"648044cfe9d1a2c72fffeac2\",\r\n    \"note\":25,\r\n    \"remarque\":\"YNWA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8010/api/devoirs/6481c35215ed147f39abc15b",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"devoirs",
+						"6481c35215ed147f39abc15b"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete devoir",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8010/api/devoirs/6481c35215ed147f39abc14f",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"devoirs",
+						"6481c35215ed147f39abc14f"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Tomiki\",\r\n    \"mdp\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8010/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

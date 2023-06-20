@@ -1,0 +1,408 @@
+{
+	"info": {
+		"_postman_id": "602d9327-2a31-4b34-a1c5-5735a2b4ab93",
+		"name": "Assignement Api Prod",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "get matieres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/matiere",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"matiere"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all matieres",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/all/matiere",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"all",
+						"matiere"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get etudiants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/etudiants",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"etudiants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all etudiants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/all/etudiants",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"all",
+						"etudiants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get devoirs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/devoirs?page=1&limit=10",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"devoirs"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "1"
+						},
+						{
+							"key": "limit",
+							"value": "10"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "get all devoirs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/all/devoirs/",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"all",
+						"devoirs",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoir",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/devoirs/6491e046b7636000325cde7d",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"devoirs",
+						"6491e046b7636000325cde7d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoirs by etudiants",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/findByEtudiant/648041e5e9d1a2c72ffae682",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"findByEtudiant",
+						"648041e5e9d1a2c72ffae682"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoirs by status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/devoirs/sort/true",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"devoirs",
+						"sort",
+						"true"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoirs by matiere",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/findbyMatiere/648044cfe9d1a2c72fffeac0",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"findbyMatiere",
+						"648044cfe9d1a2c72fffeac0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "find devoirs sort note",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/devoirs/note/sort/648044cfe9d1a2c72fffeabf/10/16",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"devoirs",
+						"note",
+						"sort",
+						"648044cfe9d1a2c72fffeabf",
+						"10",
+						"16"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "add devoir",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"idEtudiant\":\"648041e5e9d1a2c72ffae682\",\r\n    \"idMatiere\":\"648044cfe9d1a2c72fffeac2\",\r\n    \"note\":20,\r\n    \"remarque\":\"\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/devoirs",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"devoirs"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Annuler devoir",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"648ec1c94d319809b40f8a75\",\r\n    \"idEtudiant\":\"648041e5e9d1a2c72ffae682\",\r\n    \"idMatiere\":\"648044cfe9d1a2c72fffeac2\",\r\n    \"note\":25,\r\n    \"remarque\":\"YNWA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/devoirs/annuler/648ec1c94d319809b40f8a75",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"devoirs",
+						"annuler",
+						"648ec1c94d319809b40f8a75"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update devoir",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"_id\":\"6491e046b7636000325cde7d\",\r\n    \"idEtudiant\":\"648041e5e9d1a2c72ffae682\",\r\n    \"idMatiere\":\"648044cfe9d1a2c72fffeac2\",\r\n    \"note\":17,\r\n    \"remarque\":\"YNWA\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/devoirs/6491e046b7636000325cde7d",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"devoirs",
+						"6491e046b7636000325cde7d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete devoir",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "https://mbds-assignement-back-end-api.onrender.com/api/devoirs/6491e046b7636000325cde7d",
+					"protocol": "https",
+					"host": [
+						"mbds-assignement-back-end-api",
+						"onrender",
+						"com"
+					],
+					"path": [
+						"api",
+						"devoirs",
+						"6491e046b7636000325cde7d"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\":\"Tomiki\",\r\n    \"mdp\":\"admin\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8010/api/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8010",
+					"path": [
+						"api",
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
