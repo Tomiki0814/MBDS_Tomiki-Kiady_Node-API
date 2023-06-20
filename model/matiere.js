@@ -5,8 +5,9 @@ var aggregatePaginate = require("mongoose-aggregate-paginate-v2");
 let MatiereSchema = Schema({
     id: Number,
     nom: String,
-    image: String,
-    prof: String
+    images: String,
+    prof: String,
+    profImage:String,
 });
 
 MatiereSchema.plugin(aggregatePaginate);

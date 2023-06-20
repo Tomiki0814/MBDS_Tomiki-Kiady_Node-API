@@ -3,7 +3,7 @@ let devoir = require('../model/devoir');
 // Récupérer tous les assignments (GET)
 function getDevoirsSansPagination(req, res) {
     devoir.find().populate(["idEtudiant", "idMatiere"]).exec((error, devoirs) => {
-        if (error) return next(error);
+        if (error) res.send(error);
         res.json(devoirs);
     })
 }
@@ -14,12 +14,12 @@ function getDevoirs(req, res) {
     var limit = parseInt(req.query.limit) || 10;
     var skip = (page - 1) * limit;
     devoir.find()
-        .populate(["idEtudiant", "idMatiere"])
+        .populate(["idMatiere","idEtudiant" ])
         .sort(({_id: -1}))
         .skip(skip)
         .limit(limit)
         .exec((error, devoirs) => {
-            if (error) return next(error);
+            if (error) res.send(error);
             devoir.countDocuments((err, count) => {
                 if (err) {
                 }
@@ -69,7 +69,7 @@ function findDevoirByEditudiant(req, res) {
     devoir.find({idEtudiant: req.params.id})
         .populate(["idEtudiant", "idMatiere"])
         .exec((error, devoirs) => {
-            if (error) return next(error);
+            if (error) res.send(error);
             res.json(devoirs);
         })
 
@@ -79,7 +79,7 @@ function findDevoirByMatiere(req, res) {
     devoir.find({idMatiere: req.params.id})
         .populate(["idEtudiant", "idMatiere"])
         .exec((error, devoirs) => {
-            if (error) return next(error);
+            if (error) res.send(error);
             res.json(devoirs);
         })
 }
@@ -88,7 +88,7 @@ function findDevoirById(req, res) {
     devoir.find({_id: req.params.id})
         .populate(["idEtudiant", "idMatiere"])
         .exec((error, devoirs) => {
-            if (error) return next(error);
+            if (error) res.send(error);
             res.json(devoirs);
         })
 }
@@ -103,7 +103,7 @@ function findDevoirByStatus(req, res) {
         .skip(skip)
         .limit(limit)
         .exec((error, devoirs) => {
-            if (error) return next(error);
+            if (error) res.send(error);
             devoir.countDocuments({estRendu: req.params.estRendu},(err, count) => {
                 if (err) {
                 }
@@ -121,7 +121,7 @@ function filtrerDevoirParNote(req, res){
         .populate(["idEtudiant", "idMatiere"])
         .sort(({_id: -1}))
         .exec((error, devoirs) => {
-            if (error) return next(error);
+            if (error) res.send(error);
             res.json(devoirs);
         }
 )
@@ -129,7 +129,6 @@ function filtrerDevoirParNote(req, res){
 function annulerDevoir(req, res){
     devoir.findByIdAndUpdate(req.body._id, {estRendu:false, $unset: { note: 1, remarque:1 } }, {new: true}, (err, assignment) => {
         if (err) {
-            console.log(err);
             res.send(err)
         } else {
             res.json({message: assignment + 'updated'})
