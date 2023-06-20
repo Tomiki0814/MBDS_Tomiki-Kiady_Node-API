@@ -42,8 +42,6 @@ function addDevoir(req, res) {
 
 // Update d'un assignment (PUT)
 function updateDevoir(req, res) {
-    console.log("UPDATE recu assignment : ");
-    console.log(req.body);
 
     devoir.findByIdAndUpdate(req.body._id, req.body, {new: true}, (err, assignment) => {
         if (err) {
@@ -118,6 +116,18 @@ function findDevoirByStatus(req, res) {
 }
 
 
+function filtrerDevoirParNote(req, res){
+    console.log(req.params)
+    devoir.find({idMatiere:req.params.matiere, note: {$gte: req.params.minNote, $lte: req.params.maxNote} })
+        .populate(["idEtudiant", "idMatiere"])
+        .sort(({_id: -1}))
+        .exec((error, devoirs) => {
+            if (error) return next(error);
+            res.json(devoirs);
+        }
+)
+}
+
 module.exports = {
     addDevoir,
     getDevoirs,
@@ -127,5 +137,6 @@ module.exports = {
     findDevoirByEditudiant,
     findDevoirByMatiere,
     findDevoirById,
-    findDevoirByStatus
+    findDevoirByStatus,
+    filtrerDevoirParNote
 };

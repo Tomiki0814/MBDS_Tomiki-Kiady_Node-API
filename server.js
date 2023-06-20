@@ -93,6 +93,8 @@ app.route(prefix + '/findbyMatiere/:id')
 
 app.route(prefix + '/devoirs/sort/:estRendu')
     .get(devoir.findDevoirByStatus)
+app.route((prefix+'/devoirs/note/sort/:matiere/:minNote/:maxNote'))
+    .get(devoir.filtrerDevoirParNote)
 
 
 // On démarre le serveur
